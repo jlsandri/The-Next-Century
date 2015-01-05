@@ -1,0 +1,290 @@
+// Header
+
+.header {
+  height: 40vw;
+  min-height: 50rem;
+  background-color: $purple-rose;
+  z-index: -1;
+
+  @include breakpoint(phone) {
+    min-height: 0;
+    height: 105vh;
+
+    .title {
+      margin-top: -12rem;
+    }
+  }
+}
+
+canvas {
+  position:absolute;
+  top:0;
+  left:0;
+  z-index: 0;
+  opacity: 0.3;
+}
+
+.title {
+  margin-top: -6rem;
+  z-index: 1;
+}
+
+.side-nav {
+  z-index: 2;
+  position: fixed;
+  top:45%;
+  right:$small;
+
+  ul li {
+    margin: 0px;
+    padding: 10px 0px 10px 15px;
+    cursor: pointer;
+
+    a {
+      width: 10px;
+      height: 10px;
+      display: block;
+      text-decoration: none;
+      border-radius: 50%;
+      background-color: black;
+      transition: background-color 0.1s linear 0s, border-color 0.1s linear 0s;
+    }
+
+    .nav-title {
+      @extend h3;
+      position: absolute;
+      right: 10px;
+      opacity: 0;
+      text-transform: none;
+      white-space: nowrap;
+      letter-spacing: 2px;
+      transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+      line-height: 7px;
+      visibility: hidden;
+    }
+  }
+
+  li:hover {
+    .nav-title {
+      opacity: 1;
+      z-index: 51;
+      padding-right: 20px;
+      visibility: visible;
+    }
+
+    a {
+    width: 6px;
+    height: 6px;
+    background-color: transparent;
+    border: 2px solid #000;
+    }
+  }
+
+  @include breakpoint(laptop) {
+    display: none;
+  }
+}
+
+// Front
+
+content {
+  margin-top: $top-negative;
+  position: relative;
+  z-index: 1;
+}
+
+.line-start {
+  h2 {
+    letter-spacing: 2px;
+    color: white;
+  }
+
+  .line {
+    width: 2px;
+    height: 50px;
+    background-color: white;
+  }
+}
+
+.line-behind {
+    width: 2px;
+    height: 100%;
+    position: absolute;
+    top: $large;
+    right: 50%;
+    z-index: 0;
+}
+
+.line-wrapper {
+  position: relative;
+}
+
+[white] {background-color: white;}
+[singularity] {background-color: $singularity; height: 90%;}
+
+/* Content box */
+
+.box {
+  max-width: 50vw;
+  flex-direction: row;
+  text-align: left;
+  background-color: white;
+  padding: $medium;
+  margin-bottom: $large;
+  z-index: 1;
+
+  h1, h2, h4 {
+    padding: 0 $small 0 $xsmall;
+    max-width: 20rem;
+  }
+
+  h2 {
+    max-width: 20rem;
+  }
+
+  .left{order:1;}
+  .right{order:2;}
+
+  .left, .right {
+    width: 50%;
+  }
+
+  @include breakpoint(laptop) {
+    flex-direction: column;
+    padding: $large $small 0 $small;
+    max-width: 50vw;
+
+    h1, h2, p, h4 {
+      max-width: none;
+      text-align: center;
+      padding: 0;
+      width: 100%;
+    }
+
+    p {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    p:first-child {
+      margin-top: $small;
+    }
+
+    p:last-child {
+      padding-bottom: $small;
+    }
+
+    .left, .right {
+      width: 100%;
+      padding: none;
+    }
+  }
+
+  @include breakpoint(phone) {
+    flex-direction: column;
+    padding: $small $xsmall 0 $xsmall;
+    max-width: 80vw;
+  }
+}
+
+[right] {
+  .right{
+    h1, h2 {
+      padding-left: $medium;
+    }
+
+    @include breakpoint(laptop) {
+      order:0;
+
+      h1, h2 {
+        padding:0;
+      }
+    }
+  }
+}
+
+[center] {
+  flex-direction: column;
+
+  .right {
+    width: 100%;
+  }
+
+  .left {
+    width: 50%;
+    text-align: center;
+    align-items: center;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  p:first-child {
+    margin-top: $small;
+  }
+
+  h1, h2, h4 {
+    width: 100%;
+    padding: 0;
+  }
+
+  @include breakpoint(phone) {
+    h4 {
+      margin-top: $small;
+    }
+  }
+}
+
+[justify] {
+  margin-top: 15rem;
+
+  p {
+    text-align: justify;
+    text-justify: inter-word;
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+
+    -webkit-column-gap: $small; /* Chrome, Safari, Opera */
+    -moz-column-gap: $medium; /* Firefox */
+    column-gap: 40px;
+
+    line-height: 30px;
+    margin-top: $small;
+  }
+
+  @include breakpoint(laptop) {
+    p {
+    -webkit-column-count: 1; /* Chrome, Safari, Opera */
+    -moz-column-count: 1; /* Firefox */
+    column-count: 1;
+    }
+  }
+}
+
+[last] {
+  margin-bottom: $bottom-negative;
+}
+
+// Footer
+
+.footer-section {
+  height: 15vw;
+  min-height: 20rem;
+  background-color: $purple-rose;
+
+  .content {
+    margin-top: $medium;
+  }
+
+  h2 {
+    font-size: 10px;
+    line-height: 0.6rem;
+  }
+
+  h2 :last-child {
+    color: white;
+  }
+}

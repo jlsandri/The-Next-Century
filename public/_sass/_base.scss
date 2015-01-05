@@ -1,0 +1,34 @@
+body{
+  font-family: "Helvetica";
+  text-align: center;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background: $purple-rose;
+}
+
+.dg.ac {display: none;}
+
+ul {
+  list-style: none;
+  padding:0px;
+  margin: 0px;
+}
+
+.frame {
+  background-color: $atmosphere;
+  z-index: -99;
+
+  > * {
+    @extend .center;
+    width: 100%;
+    > * {
+      @extend .center;
+      width: 100%;
+      max-width: $max-width;
+    }
+  }
+}
+
+
+

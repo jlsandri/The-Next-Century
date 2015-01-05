@@ -1,0 +1,16 @@
+@-webkit-keyframes singularity {
+  0%   { background-color: white; }
+  50% { background-color: $singularity; }
+  100% { background-color: white; }
+}
+
+@keyframes singularity {
+  0%   { background-color: white; }
+  50% { background-color: $singularity; }
+  100% { background-color: white; }
+}
+
+[singularity] {
+  -webkit-animation: singularity 2.5s ease-in-out infinite;
+  -moz-animation: singularity 2.5s ease-in-out infinite;
+}
