@@ -1,11 +1,3 @@
-The-Next-Century
-================
-
-
-An informational one pager that lists Ray Kurtzweil’s future predictions in one time timeline. A passion project borne out of an intense desire to leave the present and accept our nanomachine overlords (and also play around with Harp.js) 
-
-================
-
 The MIT License (MIT)
 
 Copyright (c) 2015 James L. Sandri
